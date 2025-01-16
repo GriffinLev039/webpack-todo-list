@@ -1,0 +1,6 @@
+- Title (String)
+- Date (String)
+- Description (String)
+- priority (Integer 0-3) For Low/Med/High/Urgent
+- tags (Array of Strings)
+- Checklist (Array of objects?)

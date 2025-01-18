@@ -12,3 +12,23 @@
 //Function to load data
 //Function to wipe data
 //That should be it!
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('isWritten') != null) {
+    } else {
+        localStorage.setItem("isWritten", true);
+        writeDefaults();
+    }
+});
+
+function writeItem(name,item){
+    localStorage.setItem(name,item.toCSV());
+}
+
+function writeDefaults(){
+    
+}
+
+export {writeItem};

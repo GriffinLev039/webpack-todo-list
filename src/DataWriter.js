@@ -18,15 +18,12 @@ import { createItem } from "./logic";
 
 // Create an index of task names
 
+let taskArr = [];
+
 document.addEventListener('DOMContentLoaded', () => {
-    const taskArr = [];
-    taskArr = localStorage.getItem('taskArr').split(',');
-    if (taskArr !== null) {
-        for (let taskName in taskArr) {
-            readTask(taskName);
-        }
-    } else {
-        // Function to write defaults
+    taskArr = localStorage.getItem('taskArr').split(',') || [];
+    for (let taskName of taskArr) {
+        readTask(taskName);
     }
 });
 
@@ -39,11 +36,15 @@ function readTask(taskName) {
     const tags = TASK_CSV.slice(TASK_CSV.indexOf('{'), TASK_CSV.indexOf('}')).split(',');
     createTask(createItem(name, desc, date, tags));
     return { name, desc, date, tags };
-    
+
 }
 
 function writeTask(task) {
     localStorage.setItem(task.getName(), task.toCSV());
+    if (!taskArr.includes(task.getName())) {
+        taskArr.push(task.getName());
+        localStorage.setItem('taskArr', taskArr);
+    }
 }
 
 function wipeData() {
@@ -51,4 +52,4 @@ function wipeData() {
 }
 
 
-export {readTask, writeTask, wipeData};
+export { readTask, writeTask, wipeData };

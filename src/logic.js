@@ -86,4 +86,4 @@ const itemArray = (function () {
 
 })();
 
-export { itemArray };
+export { itemArray, createItem };

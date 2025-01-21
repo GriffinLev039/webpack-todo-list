@@ -1,4 +1,5 @@
 import { itemArray } from "./logic";
+import { writeTask } from "./DataWriter";
 
 
 const container = document.getElementById('content');
@@ -12,13 +13,13 @@ const container = document.getElementById('content');
         let name = prompt("Name:");
         let date = prompt("Date");
         let desc = prompt("desc");
-
-        createTask(itemArray.addItem(name, desc, date));
+        let TASK = itemArray.addItem(name, desc, date);
+        createTask(TASK);
+        writeTask(TASK);
     });
 
     container.appendChild(newTaskBtn);
 })();
-
 
 function createTask(item) {
     const taskContainer = document.createElement('div');

@@ -1,0 +1,85 @@
+* {
+    margin: 0px;
+}
+
+
+
+#content {
+    display: flex;
+    flex-flow: row;
+    background-color:blue;
+    height: 80vh;
+    width: 100vw;
+}
+
+#btnContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding-top: 5%;
+    height: 95%;
+    width: 20%;
+    gap: 30px;
+    overflow: scroll;
+}
+
+#subContainer{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 15px;
+    height: 80%;
+    width: 96%;
+    margin: 2%;
+    overflow: scroll;
+}
+
+#subContainer > *{
+    display: flex;
+    flex-flow: row nowrap;
+    height: 50px;
+    width: 100%;
+    border: 1px solid red;
+}
+
+.textContainer, .optionContainer {
+    display: flex;
+    height: 100%;
+}
+
+.textContainer {
+    flex-flow: column nowrap;
+    width: 80%;
+
+
+}
+
+.textContainer > * {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 50%;
+}
+
+.optionContainer {
+    width: 20%;
+
+}
+
+#btnSubContainer {
+    height: 50px;
+}
+
+#btnSubContainer > * {
+    height: 100%;
+    border-radius: 0px;
+}
+
+#btnSubContainer>*:first-child {
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+#btnSubContainer>*:last-child {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}

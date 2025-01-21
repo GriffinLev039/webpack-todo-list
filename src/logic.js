@@ -38,12 +38,26 @@ function createItem(ArgName, ArgDesc, ArgDate, ArgTags) {
         }
         return false;
     }
+    function getTags() {
+        return this.tags;
+    }
+    function getTagString() {
+        let outputStr = "";
+        for (let i = 0; i < tags.length; i++){
+            outputStr+=tags[i]+" ";
+        }
+        return outputStr;
+    }
+
+    function toCSV(){
+        return `${getName()},${getDate()},"${getDesc()}",{${getTagString()}}`;
+    }
     // Function to mark complete
     // Function to mark incomplete
-    return { setName, getName, setDesc, getDesc, setDate, getDate, addTag, removeTag, hasTag };
+    return { setName, getName, setDesc, getDesc, setDate, getDate, addTag, removeTag, hasTag, getTags, getTagString, toCSV};
 }
 // IIFE that instantiates the list
-const itemArray = (function () {
+const itemArrayCTRL = (function () {
     const itemArray = [];
 
     function addItem(ArgName, ArgDesc, ArgDate, ArgTags) {
@@ -73,6 +87,10 @@ const itemArray = (function () {
     function getItem(i) {
         return itemArray[i];
     }
+    function tagSort(){
+        return getItem();
+    }
+
     function tagSort(givenTag) {
         const returnArr = [];
         for (let item of itemArray) {
@@ -86,4 +104,4 @@ const itemArray = (function () {
 
 })();
 
-export { itemArray, createItem };
+export { itemArrayCTRL, createItem };
